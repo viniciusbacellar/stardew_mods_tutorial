@@ -1,19 +1,68 @@
-<div id="body">
-  <div id="content" class="container">
-    <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="first-section">
-      <div class="d-flex justify-content-center align-items-center">
-        <h1 id="homeTitle">mods</h1>
-        <img src="assets/galinha-stardew.jpg" alt="img-stardew" id="stardew-img" width="47" height="100%">
-      </div>
-      <div>
-        <p>Jogue Stardew Valley com Mods!</p>
-        <p>Baixe agora para PC.</p>
-      </div>
-    </section>
+<div id="content" class="container">
+  <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="first-section">
+    <div class="d-flex justify-content-center align-items-center">
+      <h1 id="homeTitle">mods</h1>
+      <img src="assets/galinha-stardew.jpg" alt="img-stardew" id="stardew-img" [width]="widthIcons" height="100%">
+    </div>
+    <div>
+      <p>Jogue Stardew Valley com Mods!</p>
+      <p>Baixe agora para PC.</p>
+    </div>
+  </section>
 
-    <section id="second-section">
-      <button (click)="downloadMods()"></button>
-    </section>
 
-  </div>
+
+  <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="second-section">
+    <p class="titleDonwload">1. Baixe o SMAPI</p>
+    <button (click)="download(linkFileBucketSmapi)" type="button" class="btn btn-primary border-0 rounded p-5" id="button-download-pc">
+      <img src="assets/windows.svg" alt="download-pc" [width]="widthIcons" height="100%" *ngIf="!loading">
+      <div class="spinner-border" role="status" *ngIf="loading">
+        <span class="visually-hidden"></span>
+      </div>
+      <p style="color: #fff; font-weight: bold;">PC</p>
+    </button>
+  </section>
+
+  <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="third-section">
+    <p class="titleDonwload">2. Abra o "install on Windows" e selecione a opção [1]</p>
+    <img src="assets/terminal1.jpg" alt="download-pc" width="700">
+  </section>
+
+  <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="fourth-section">
+    <p class="titleDonwload">3. No proximo passo selecione a opção [1]</p>
+    <img src="assets/terminal2.jpg" alt="download-pc" width="700">
+  </section>
+
+  <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="fourth-section">
+    <p class="titleDonwload">4. Depois copie o caminho que irá aparecer após a instalação como está representado</p>
+    <img src="assets/terminal3.jpg" alt="download-pc" width="700">
+  </section>
+
+  <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="fourth-section">
+    <p class="titleDonwload">5. Vá nas propriedades do stardew valley na steam e cole como está no campo destacado</p>
+    <img src="assets/terminal4.jpg" alt="download-pc" width="700">
+  </section>
+
+  <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="fifth-section">
+    <p class="titleDonwload">6. Baixe os mods abaixo</p>
+    <button (click)="download(linkFileBucketMods)" type="button" class="btn btn-primary border-0 rounded p-5" id="button-download-pc">
+      <img src="assets/windows.svg" alt="download-pc" [width]="widthIcons" height="100%" *ngIf="!loading">
+      <div class="spinner-border" role="status" *ngIf="loading">
+        <span class="visually-hidden"></span>
+      </div>
+      <p style="color: #fff; font-weight: bold;">PC</p>
+    </button>
+  </section>
+
+  <section class="row flex-column justify-content-center align-items-center text-center pt-5" id="sixth-section">
+    <p class="titleDonwload">7. Procure a pasta mods no caminho: "C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley"</p>
+    <img src="assets/pastaMods.jpg" alt="download-pc" width="700">
+  </section>
+
+  <section class="row flex-column justify-content-center align-items-center text-center py-5" id="seventh-section">
+    <h2 class="titleDonwload">Cole todos os mods baixados dentro dessa pasta e seja feliz!!!</h2>
+  </section>
 </div>
+<footer class="d-flex justify-content-center align-items-center text-center py-3" id="footer">
+  <p style="margin: 0; color: #fff;">&copy; 2023-{{actualYear}} Vinícius Bacellar. Todos os direitos reservados.</p>
+</footer>

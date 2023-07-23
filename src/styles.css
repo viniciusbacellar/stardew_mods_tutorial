@@ -1,0 +1,6 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background: url(assets/backgroundHomePage.jpg) no-repeat center fixed;
+  background-size: cover;
+}

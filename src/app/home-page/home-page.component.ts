@@ -9,18 +9,33 @@ import { UtilsService } from '../shared/services/utils.service';
 export class HomePageComponent implements OnInit {
 
   constructor(
-    //private utilsService: UtilsService
+    private utilsService: UtilsService
   ) {}
 
-  linkFileBucket: string = "https://stardew-valley-mods.s3.sa-east-1.amazonaws.com/mods_stardew_valley.zip"
+  actualYear: number = new Date().getFullYear()
+  linkFileBucketMods: string = "https://stardew-valley-mods.s3.sa-east-1.amazonaws.com/mods_stardew_valley.zip"
+  linkFileBucketSmapi: string = "https://stardew-valley-mods.s3.sa-east-1.amazonaws.com/SMAPI-3.18.3-installer.zip"
+  widthIcons: number = 47
+  loading: boolean = false;
 
   ngOnInit(): void {
 
   }
 
-  downloadMods() {
-    const partesLink = this.linkFileBucket.split("/")
+  download(link: string) {
+    const partesLink = link.split("/")
     const fileName = partesLink[partesLink.length - 1]
-    //this.utilsService.downloadFile(this.linkFileBucket, fileName)
+    this.loading = true;
+    this.utilsService.downloadFile(link).subscribe(response => {
+      const url = window.URL.createObjectURL(response);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = url;
+      a.download = fileName;
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      this.loading = false;
+    });
   }
 }
