@@ -9,7 +9,7 @@ import { UtilsService } from '../shared/services/utils.service';
 export class HomePageComponent implements OnInit {
 
   constructor(
-    private utilsService: UtilsService
+    //private utilsService: UtilsService
   ) {}
 
   linkFileBucket: string = "https://stardew-valley-mods.s3.sa-east-1.amazonaws.com/mods_stardew_valley.zip"
@@ -21,6 +21,6 @@ export class HomePageComponent implements OnInit {
   downloadMods() {
     const partesLink = this.linkFileBucket.split("/")
     const fileName = partesLink[partesLink.length - 1]
-    this.utilsService.downloadFile(this.linkFileBucket, fileName)
+    //this.utilsService.downloadFile(this.linkFileBucket, fileName)
   }
 }
